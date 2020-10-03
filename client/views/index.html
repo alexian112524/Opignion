@@ -19,12 +19,12 @@
         <header>
             <h1 class="opignon-welcome">Welcome on Opignon {{ name }}!</h1>
             <div class="form-container">
-                <form class="opignon-form">
+                <form class="opignon-form" @submit.prevent="onSubmit">
                     <input class="opignon-form-name" v-model="name" type="text" name="name" placeholder="Your name ..."/>
                     <textarea class="opignon-form-opinion" v-model="opinion" name="opignon" placeholder="Your opignon ..."
                         rows="5" cols="50">
                     </textarea>
-                    <button class="opignon-form-submit" :disabled="isDisabled()" @click.prevent="onSubmit" type="submit">Send</button>
+                    <button class="opignon-form-submit" :disabled="isDisabled()" type="submit">Send</button>
                 </form>
             </div>
         </header>
@@ -40,7 +40,7 @@
                 </div>
             </div>
         </main>
-    </div>
+    </div>>
     
     <script src="../assets/javascript/index.js"></script>
 </body>

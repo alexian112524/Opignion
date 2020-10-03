@@ -13,9 +13,9 @@
     <div id="todo-vue">
         <h1>Todo list</h1>
 
-        <form>
+        <form @submit.prevent="addTodo">
             <input v-model="newTodo" type="text" name="newTodo" placeholder="What you plan to do .."/>
-            <button :disabled="isDisabled()" @click.prevent="addTodo" type="submit">Add</button>
+            <button :disabled="isDisabled()" type="submit">Add</button>
         </form>
 
         <div>
