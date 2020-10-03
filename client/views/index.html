@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opignon</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet"> 
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" rel="stylesheet">
+    <link href="../assets/styles/index.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <nav class="nav-bar">
+            <a @click="" href="index.html">Opignon</a>
+            <a @click="" href="todo.html">Todo list</a>
+        </nav>
+    
+        <header>
+            <h1 class="opignon-welcome">Welcome on Opignon {{ name }}!</h1>
+            <div class="form-container">
+                <form class="opignon-form">
+                    <input class="opignon-form-name" v-model="name" type="text" name="name" placeholder="Your name ..."/>
+                    <textarea class="opignon-form-opinion" v-model="opinion" name="opignon" placeholder="Your opignon ..."
+                        rows="5" cols="50">
+                    </textarea>
+                    <button class="opignon-form-submit" :disabled="isDisabled()" @click.prevent="onSubmit" type="submit">Send</button>
+                </form>
+            </div>
+        </header>
+    
+        <main>
+            <div class="opignons-list">
+                <div class="opignon-display" v-for="opignon in opignons">
+                    <div class="opignon-display-top">
+                        <span class="opignon-display-top-name">{{ opignon.name }}</span>
+                        <span class="opignon-display-top-date">{{ toDate(opignon.date) }}</span>
+                    </div>
+                    <div class="opignon-display-middle">{{ opignon.opinion }}</div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <script src="../assets/javascript/index.js"></script>
+</body>
+</html>

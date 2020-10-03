@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo list</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet"> 
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" rel="stylesheet">
+    <link href="../assets/styles/todo.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+</head>
+<body>
+    <div id="todo-vue">
+        <h1>Todo list</h1>
+
+        <form>
+            <input v-model="newTodo" type="text" name="newTodo" placeholder="What you plan to do .."/>
+            <button :disabled="isDisabled()" @click.prevent="addTodo" type="submit">Add</button>
+        </form>
+
+        <div>
+            <ul class="todos-list">
+                <li class="todo-element" v-for="todo in todos">
+                    <span class="delete-todo" title="Delete" @click="deleteTodo(todo)">X</span>
+                    <span :class="[{done: todo.done}]" @click="setDone(todo)">{{todo.value}}</span>    
+                </li>
+            </ul>
+        </div>
+
+    </div>
+    <script src="../assets/javascript/todo.js"></script>
+</body>

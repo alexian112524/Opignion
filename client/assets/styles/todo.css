@@ -1,0 +1,19 @@
+.todo-element {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.done {
+    text-decoration: line-through;
+}
+
+.todos-list {
+    list-style: none;
+}
+
+.delete-todo {
+    font-size: 18px;
+    font-weight: bold;
+    margin-right: 5px;
+}
