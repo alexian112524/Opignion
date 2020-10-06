@@ -1,4 +1,4 @@
-var todoApp = new Vue ({
+const todoApp = new Vue ({
     el: "#todo-vue",
     data: {
         newTodo: "",
@@ -14,7 +14,7 @@ var todoApp = new Vue ({
                 done: false
             })
             .then(response => {
-                var todo = response.data.todo;
+                const todo = response.data.todo;
                 this.todos.unshift(todo);
             })
             .catch(error => console.log(error));
@@ -22,7 +22,7 @@ var todoApp = new Vue ({
             this.newTodo = "";
         },
         setDone(todo) {
-            var newDoneValue = !todo.done;
+            const newDoneValue = !todo.done;
             axios.put(`http://localhost:3000/api/todo/${todo._id}`, {
                 value: todo.value,
                 done: newDoneValue
@@ -35,7 +35,7 @@ var todoApp = new Vue ({
         deleteTodo(todo) {
             axios.delete(`http://localhost:3000/api/todo/${todo._id}`)
                 .then(response => {
-                    var indexTodo = this.todos.indexOf(todo); 
+                    const indexTodo = this.todos.indexOf(todo); 
                     this.todos.splice(indexTodo, 1);
                 })
                 .catch(error => console.log(error));

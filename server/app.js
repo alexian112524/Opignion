@@ -1,26 +1,24 @@
+const dotenv = require('dotenv').config('./.env');
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const cors = require('cors');
+
 const Opignon = require('./models/opignon');
 const Todo = require('./models/todo');
 
 const app = express();
+app.use(cors());
 
 app.use(bodyParser.json());
 
-mongoose.connect('mongodb+srv://alexianserrano:Alexian140396@cluster0.wshxe.mongodb.net/test?retryWrites=true&w=majority',
+mongoose.connect(process.env.MONGO_URL,
     { 
         useNewUrlParser: true,
-        useUnifiedTopology: true })
+        useUnifiedTopology: true 
+    })
     .then(() => console.log("Connexion MongoDB réussie !"))
     .catch(() => console.log("Echec de la connexion à MongoDB !"));
-
-app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
-    next();
-});
 
 app.post('/api/opignons', (req, res, next) => {
     const opignon = new Opignon({

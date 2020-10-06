@@ -1,4 +1,4 @@
-var app = new Vue ({
+const app = new Vue ({
     el: '#app',
     data: {
         name: "",
@@ -27,19 +27,19 @@ var app = new Vue ({
             return (this.name === "" || this.opinion === "");
         },
         toDate: function (date) {
-            var newDate = new Date(date);
-            var now = new Date(Date.now());
-            var day = newDate.getDate();
-            var month = newDate.getMonth()+1;
-            var year = newDate.getFullYear();
+            const newDate = new Date(date);
+            const now = new Date(Date.now());
+            const day = newDate.getDate();
+            const month = newDate.getMonth()+1;
+            const year = newDate.getFullYear();
 
             if (now.getFullYear() === year && 
                 (now.getMonth()+1) === month &&
                 now.getDate() === day) 
             {
-                var hours = newDate.getHours() < 10 ? '0'+newDate.getHours() : newDate.getHours();
-                var minutes = newDate.getMinutes() < 10 ? '0'+newDate.getMinutes() : newDate.getMinutes();
-                var seconds = newDate.getSeconds() < 10 ? '0'+newDate.getSeconds() : newDate.getSeconds();
+                const hours = newDate.getHours() < 10 ? '0'+newDate.getHours() : newDate.getHours();
+                const minutes = newDate.getMinutes() < 10 ? '0'+newDate.getMinutes() : newDate.getMinutes();
+                const seconds = newDate.getSeconds() < 10 ? '0'+newDate.getSeconds() : newDate.getSeconds();
                 return hours+':'+minutes+':'+seconds;
             }
 
